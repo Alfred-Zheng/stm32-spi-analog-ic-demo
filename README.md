@@ -20,8 +20,11 @@ Use STM32 to communicate with an analog IC through SPI.
 - Write multiple registers
 - Read chip ID
 
-## Example API
+## SPI Frame
 
-```c
-uint8_t ic_read_reg(uint8_t reg);
-void ic_write_reg(uint8_t reg, uint8_t value);
+One SPI transaction contains 24 bits:
+
+```text
+Byte 0: command / address
+Byte 1: data high
+Byte 2: data low
